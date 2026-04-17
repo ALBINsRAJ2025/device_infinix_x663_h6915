@@ -21,6 +21,7 @@ TARGET_BOARD_PLATFORM := mt6768
 TARGET_BOOTLOADER_BOARD_NAME := Infinix-X663
 TARGET_NO_BOOTLOADER := true
 BOARD_HAS_MTK_HARDWARE := true
+TARGET_SCREEN_DENSITY := 480
 
 # Kernel (prebuilt)
 TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/kernel
@@ -100,6 +101,15 @@ BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 4
 # Recovery
 BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6768
+
+# SEPolicy
+ifneq (,$(wildcard device/mediatek/sepolicy_vndr/SEPolicy.mk))
+include device/mediatek/sepolicy_vndr/SEPolicy.mk
+endif
+
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # VNDK
 BOARD_VNDK_VERSION := current
