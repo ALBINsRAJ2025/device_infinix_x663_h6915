@@ -2,6 +2,7 @@ DEVICE_PATH := device/infinix/x663_h6915
 KERNEL_PATH := device/infinix/x663_h6915-kernel
 
 BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Architecture
 TARGET_ARCH := arm64
