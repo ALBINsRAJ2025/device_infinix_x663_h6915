@@ -1127,5 +1127,5 @@ service osi /system/bin/osi
 
 #BSP:add custom factory reset CHJHBYY-5 by wang.qin 20210427 start
 on property:persist.vendor.tran.wipedata=1 && property:ro.boot.atm=enable
-    tran_factory_reset
+    setprop persist.vendor.tran.wipedata 0
 #BSP:add custom factory reset CHJHBYY-5 by wang.qin 20210427 end
